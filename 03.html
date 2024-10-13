@@ -1,0 +1,49 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: REAJUSTE SALARIAL
+    Faça um script que peça para o usuário informar o valor do seu salário.
+    
+    O script deverá calcular e mostrar o valor do aumento e o valor do novo salário.
+    
+    - Considere que, caso seu salário seja menor ou igual a R$ 2.000,00 o reajuste será de 15%.
+    - Caso seja maior que R$ 2.000,00 o reajuste será de 10%.
+    - Ainda, sendo maior que R$ 4.000,00 o reajuste será de 7,5%.
+    - Por fim, caso seja maior que R$ 7.000,00 o reajuste será de 5%.
+    
+    Calcule e apresente o salário final de acordo com o reajuste obtido.
+    */
+
+    //ENTRADA
+    const salarioBase = prompt(`informe o valor do seu salário`);   
+    const salario = Number(salarioBase.replace(',','.'));
+    if(!salarioBase || isNaN(salario) || salario <= 0 ){
+            alert(`Insira um valor valido para o salário`);
+        }else{
+    let valor;
+    let valordoAumento = 0;
+
+
+    //PROCESSAMENTO
+   
+    if (salario <= 2000){
+        valor = salario * 1.15; 
+    }
+    else if (salario > 2000 && salario <=4000){
+        valor = salario * 1.10; 
+    }
+    else if (salario > 4000 && salario <= 7000){
+        valor = salario * 1.075;
+    }else {
+        valor = salario * 1.05;
+    }
+
+    valordoAumento = valor - salario;
+
+    const formatarValor = (valor) => valor.toFixed(2).replace('.', ','); // Formatação para substituir ponto por vírgula
+
+    //SAÍDA
+    alert(`o valor do aumento é  R$ ${formatarValor(valordoAumento)} e o valor do salário é  R$ ${formatarValor(valor)}`);
+}
+
+</script>
