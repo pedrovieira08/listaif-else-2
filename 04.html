@@ -10,10 +10,21 @@
     */
 
     //ENTRADA
-    const valorImovel =Number(prompt(`informe o valor do imovel`));
-    const anosFinaciamento = Number(prompt(`informe em quantos anos será realizado o finaciamento`));
-    const salariodoComprador = Number(prompt(`informe o salário do comprador`));
-
+    let valorImovel =Number(prompt(`informe o valor do imovel`).replace(',','.'));
+    if(isNaN(valorImovel) || valorImovel < 0){
+        alert(`Valor invalido, por favor informe um valor valido.`);
+        valorImovel =Number(prompt(`informe o valor do imovel`).replace(',','.'));
+    }
+    let anosFinaciamento = Number(prompt(`informe em quantos anos será realizado o finaciamento`).replace(',','.'));
+    if(isNaN(anosFinaciamento) || anosFinaciamento < 0){
+        alert(`Valor invalido, por favor informe um valor valido`);
+        anosFinaciamento = Number(prompt(`informe em quantos anos será realizado o finaciamento`).replace(',','.'));
+    }
+    let salariodoComprador = Number(prompt(`informe o salário do comprador`).replace(',','.'));
+    if(isNaN(salariodoComprador) || salariodoComprador < 0){
+        alert(`Valor invalido, por favor informe um valor valido`);
+        salariodoComprador = Number(prompt(`informe o salário do comprador`).replace(',','.'));
+    }
 
     //PROCESSAMENTO
     const mesesFinanciamento = anosFinaciamento * 12;

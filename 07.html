@@ -12,9 +12,44 @@
     */
 
     //ENTRADA
+    let salarioMes = Number(prompt(`Informe quanto recebe por mês:`).replace(',','.'));
+    if (isNaN(salarioMes) || salarioMes <= 0) {
+        alert("Por favor, insira um valor válido para o salário (número positivo).");
+        salarioMes = Number(prompt(`Informe quanto recebe por mês:`));
+    }
 
+    //ENTRADA: auxílio
+    let auxilio = prompt(`Deseja receber auxílio transporte? S - sim, N - não`).toUpperCase();
+    if (auxilio !== 'S' && auxilio !== 'N') {
+        alert("Por favor, insira 'S' para sim ou 'N' para não.");
+        auxilio = prompt(`Deseja receber auxílio transporte? S - sim, N - não`).toUpperCase();
+    }
+
+    //ENTRADA: veículo
+    let veiculo = prompt(`Utiliza veículo próprio para locomover-se? S - sim, N - não`).toUpperCase();
+    if (veiculo !== 'S' && veiculo !== 'N') {
+        alert("Por favor, insira 'S' para sim ou 'N' para não.");
+        veiculo = prompt(`Utiliza veículo próprio para locomover-se? S - sim, N - não`).toUpperCase();
+    }
 
     //PROCESSAMENTO
+    let desconto = 0;
+    let adicional = 0;
+    let salarioFinal = salarioMes;
+
+    if(auxilio === 'S' || veiculo === 'S' ){
+         desconto = salarioMes *0.06;
+        salarioFinal = salarioMes - desconto;
+
+         if(veiculo === 'S'){
+            adicional = 200;
+         }else{
+            adicional = 150;
+         }
+         salarioFinal += adicional;
+    }
+
+    alert(`Desconto aplicado é de  R$ ${desconto.toFixed(2)}\nSalário final recebido é de R$ ${salarioFinal.toFixed(2)}`);
 
     
     //SAÍDA

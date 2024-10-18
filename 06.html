@@ -15,11 +15,30 @@
     */
 
     //ENTRADA
-
+    const viagemRealizadas =Number(prompt(`ìnforme quantas viagens foram realizadas por dia.`).replace(',','.'));
+    const cargoOcupado =prompt(`informe o cargo que ocupa."motorista" ou "cobrador".`);
+    const diaria = 100;
+    const valorDiarias = diaria * viagemRealizadas;
 
     //PROCESSAMENTO
+    let valorFinal;
+            if (cargoOcupado === "motorista" || "cobrador"){
+                if(cargoOcupado === "motorista " && viagemRealizadas <=10){
+                    valorFinal = valorDiarias * 1.2;
+                }
+                else if(cargoOcupado === "motorista" && viagemRealizadas >10){
+                    valorFinal = valorDiarias * 1.35;
+                }
+                else if(cargoOcupado === "cobrador" && viagemRealizadas <= 10){
+                    valorFinal = valorDiarias;
+                }else{
+                    valorFinal = valorDiarias *1.1;
+                }
+            }else{
+                alert(`Por favor, informe um cargo valido`);
+            }
 
-    
     //SAÍDA
+    alert(`o cargo do usuario é ${cargoOcupado} e o valor final recebido pelas viagens realizadas sera de $${valorFinal}.`);
 
 </script>

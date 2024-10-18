@@ -19,11 +19,44 @@
     */
 
     //ENTRADA
-
-
+    let anosCarreira =Number(prompt(`ìnforme quantos anos de carreira que voce possui`));
+    if(isNaN(anosCarreira) || anosCarreira <0){
+        alert(`valor invalido, por favor informe um valor valido`);
+        anosCarreira =Number(prompt(`ìnforme quantos anos de carreira que voce possui`));
+    }
+    let quantidadeProjeto =Number(prompt(`informe quantos projetos de pesquisa ja cordenou`));
+    if(isNaN(quantidadeProjeto)|| quantidadeProjeto <0){
+    alert(`valor invalido, por favor informe um valor valido`);
+    quantidadeProjeto =Number(prompt(`informe quantos projetos de pesquisa ja cordenou`));
+    }
+    let projetoExtensao =Number(prompt(`informe a quantidade de projetos de extensão que orientou`));
+    if(isNaN(projetoExtensao)|| projetoExtensao <0){
+        alert(`valor invalido, por favor informe um valor valido`);
+        projetoExtensao =Number(prompt(`informe a quantidade de projetos de extensão que orientou`));
+    }
+    let tccs =Number(prompt(`informe a quantidade de TCCs que ja orientou`));
+    if(isNaN(tccs)|| tccs <0){
+        alert(`valor invalido, por favor informe um valor valido`);
+        tccs =Number(prompt(`informe a quantidade de TCCs que ja orientou`));
+    }
+   
     //PROCESSAMENTO
-
     
+    const pontosCarreira = anosCarreira * 2.5;
+    const pontosquantidadeProjeto = quantidadeProjeto * 5;
+    const pontosprojetoEntensao = projetoExtensao * 5;
+    const pontosTccs = tccs * 3;
+    const pontostotais = pontosCarreira + pontosquantidadeProjeto + pontosprojetoEntensao + pontosTccs;
+   
     //SAÍDA
+    if(pontostotais <= 30){
+        alert(`CONVIDADO`);
+    }else if(pontostotais <= 50){
+        alert(`AGREGADO`);
+    }else{
+        alert(`TITULAR`);
+    }
+
+
 
 </script>

@@ -12,11 +12,34 @@
     */
 
     //ENTRADA
+    let valordoComputador =Number(prompt(`informe o valor do computador que está vendendo`).replace(',','.'));
+    if(isNaN(valordoComputador) || valordoComputador < 0){
+        alert(`Valor invalido, por favor informe um valor valido`);
+        valordoComputador =Number(prompt(`informe o valor do computador que está vendendo`).replace(',','.'));
+    }
+    const formadePagamento =prompt(`informe a forma de pagamento do cliente. B - Boleto, D -Dinheiro, P - PIX `).toUpperCase();
+    if(formadePagamento !== 'B' && formadePagamento !== 'D' && formadePagamento !== 'P'){
+        alert(`forma de pagamento invalida, informe uma forma de pagamento, por favor.`)
+    }else{
 
 
     //PROCESSAMENTO
+    let pagamento = valordoComputador;
+    let desconto = 0;
 
+    if (formadePagamento === 'B'){
+        desconto = valordoComputador * 0.03;
+        pagamento = valordoComputador - desconto;
+    }else if(formadePagamento === 'D'){
+        desconto = valordoComputador *0.05;
+        pagamento = valordoComputador - desconto;
+    }else if(formadePagamento === 'P'){
+        desconto = valordoComputador * 0.1;
+        pagamento = valordoComputador - desconto;
+    }
     
     //SAÍDA
+    alert(`o valor final do computador de acordo com a forma de pagamento é de $${pagamento.toFixed(2)}.`);
+    }
 
 </script>

@@ -15,9 +15,8 @@
     */
 
     //ENTRADA
-    const salarioBase = prompt(`informe o valor do seu salário`);   
-    const salario = Number(salarioBase.replace(',','.'));
-    if(!salarioBase || isNaN(salario) || salario <= 0 ){
+    const salario =Number(prompt(`informe o valor do seu salário`).replace(',','.'));   
+    if(isNaN(salario) || salario <= 0 ){
             alert(`Insira um valor valido para o salário`);
         }else{
     let valor;
@@ -40,10 +39,8 @@
 
     valordoAumento = valor - salario;
 
-    const formatarValor = (valor) => valor.toFixed(2).replace('.', ','); // Formatação para substituir ponto por vírgula
-
     //SAÍDA
-    alert(`o valor do aumento é  R$ ${formatarValor(valordoAumento)} e o valor do salário é  R$ ${formatarValor(valor)}`);
+    alert(`o valor do aumento é  R$ ${valordoAumento.toFixed(2).replace('.',',')} e o valor do salário é  R$ ${valor.toFixed(2).replace('.',',')}`);
 }
 
 </script>

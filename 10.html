@@ -12,11 +12,53 @@
     */
 
     //ENTRADA
-
-
+    let precoSaopaulo =Number(prompt(`informe o preço do transporte aereo para São Paulo.`).replace(',','.'));
+    if(isNaN(precoSaopaulo) || precoSaopaulo < 0){
+        alert(`valor invalido, por favor informe um valor valido`);
+        precoSaopaulo =Number(prompt(`informe o preço do transporte aereo para São Paulo.`).replace(',','.'));
+    }
+    let precoSaopaulohotel =Number(prompt(`informe o preço do hotel do São Paulo`).replace(',','.'));
+    if(isNaN(precoSaopaulohotel) || precoSaopaulohotel < 0){
+        alert(`valor invalido, por favor informe um valor valido`);
+        precoSaopaulohotel =Number(prompt(`informe o preço do hotel do São Paulo`).replace(',','.'));
+    }
+    let diasnoHotelsaopaulo =Number(prompt(`informe quantos dias voce pretende ficar no hotel de São Paulo`).replace(',','.'));
+    if(isNaN(diasnoHotelsaopaulo) || diasnoHotelsaopaulo < 0){
+        alert(`valor invalido, por favor informe um valor valido`);
+        diasnoHotelsaopaulo =Number(prompt(`informe quantos dias voce pretende ficar no hotel de São Paulo`).replace(',','.'));
+    }
+    let precoRiodeJaneiro = Number(prompt(`informe o preço do transporte aereo para Rio de Janeiro.`).replace(',','.'));
+    if(isNaN(precoRiodeJaneiro) ||precoRiodeJaneiro  < 0){
+        alert(`valor invalido, por favor informe um valor valido`);
+        precoRiodeJaneiro = Number(prompt(`informe o preço do transporte aereo para Rio de Janeiro.`).replace(',','.'));
+    }
+    let precoRiodeJaneirohotel =Number(prompt(`informe o preço do hotel do Rio de Janeiro`).replace(',','.'));
+    if(isNaN(precoRiodeJaneirohotel) || precoRiodeJaneirohotel < 0){
+        alert(`valor invalido, por favor informe um valor valido`);
+        precoRiodeJaneirohotel =Number(prompt(`informe o preço do hotel do Rio de Janeiro`).replace(',','.'));
+    }
+    let diasnoHotelriodejaneiro =Number(prompt(`informe quantos dias voce pretende ficar no hotel de Rio de Janeiro`).replace(',','.'));
+    if(isNaN(diasnoHotelriodejaneiro) || diasnoHotelriodejaneiro < 0){
+        alert(`valor invalido, por favor informe um valor valido`);
+        diasnoHotelsaopaulo =Number(prompt(`informe quantos dias voce pretende ficar no hotel de Rio de Janeiro`).replace(',','.'));
+    }
     //PROCESSAMENTO
+    const diariaSaopaulo = precoSaopaulohotel * diasnoHotelsaopaulo;
+    const valorSaopaulo = precoSaopaulo + diariaSaopaulo;
+    const diariaRiodejaneiro = precoRiodeJaneirohotel * diasnoHotelriodejaneiro;
+    const valorRiodejaneiro = precoRiodeJaneiro + diariaRiodejaneiro;
+    let decisao;
+    let custo = 0;
 
-    
+    if(valorSaopaulo < valorRiodejaneiro){
+        decisao = "A melhor decisão é ir para São Paulo.";
+        custo = valorSaopaulo;
+    }else{
+        decisao ="A melhor decisão é ir para o Rio de Janeiro";
+         custo = valorRiodejaneiro;
+    }
+
     //SAÍDA
+    alert(`${decisao}. O custo final da viagem sera de $${custo.toFixed(2)}.`)
 
 </script>

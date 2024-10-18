@@ -10,8 +10,11 @@
     */
 
     //ENTRADA
-    const celsius =Number(prompt(`informe o valor de uma temperatura em graus celsius`));
-
+    let celsius =Number(prompt(`informe o valor de uma temperatura em graus celsius.`).replace(',','.'));
+    if (isNaN(celsius)){
+        alert(`valor invalido, por favor informe um valor valido.`);
+        celsius =Number(prompt(`informe o valor de uma temperatura em graus celsius.`).replace(',','.'));
+    }
 
     //PROCESSAMENTO
     if (celsius <=100){
